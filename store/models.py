@@ -1,12 +1,13 @@
 from django.db import models
 from django.urls import reverse
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Product(models.Model):
     product_name = models.CharField(max_length=200)
     price = models.IntegerField()
     description = models.TextField(max_length=500)
-    image = models.ImageField()
+    image = CloudinaryField('image', blank=True, null=True )
     quantity = models.IntegerField()
 
     def get_absolute_url(self):
