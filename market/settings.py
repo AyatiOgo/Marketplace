@@ -15,6 +15,9 @@ import os
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-74xoe%q=si+72z6yy6y%8r75k2ch1wees@=v4rgp^9(rkzxv8&'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -140,9 +143,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Cloudinary configuration
 
 cloudinary.config( 
-    cloud_name = "drkmg5qse", 
-    api_key = "767684337224815", 
-    api_secret = "BAd68O8raolW32eJ_ZIm7tak4UQ", # Click 'View API Keys' above to copy your API secret
+    cloud_name = os.getenv('cloud_name'), 
+    api_key = os.getenv('api_key'), 
+    api_secret = os.getenv('api_secret'), 
 )
 
 
